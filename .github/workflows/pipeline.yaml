@@ -3,12 +3,12 @@ name: CI/CD Pipeline with Resource Governance
 on:
   push:
     branches:
-      - main
+      - master
       - develop
       - feature/*
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   # Lightweight linter job - always runs first
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest  # Use 'gpu-runner' in production
     needs: [linter]
     if: |
-      github.ref == 'refs/heads/main' && 
+      github.ref == 'refs/heads/master' && 
       contains(github.event.head_commit.message, '[run-train]')
     
     steps:
@@ -62,7 +62,7 @@ jobs:
       - name: Simulate expensive training
         run: |
           echo "Starting GPU-accelerated training..."
-          echo "Training on main branch with explicit approval"
+          echo "Training on master branch with explicit approval"
           # Simulate training (replace with actual training command)
           for i in {1..10}; do
             echo "Epoch $i/10 completed"
