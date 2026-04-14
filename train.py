@@ -3,3 +3,4 @@
 "    print('Training...')" 
 "# Test update without trigger" 
 "# Test for assignment" 
+"# Trigger workflow on master" 
