@@ -64,12 +64,7 @@ jobs:
         run: |
           echo "Starting GPU-accelerated training..."
           echo "Training on master branch with explicit approval"
-          # Simulate training (replace with actual training command)
-          for i in {1..10}; do
-            echo "Epoch $i/10 completed"
-            sleep 1
-          done
-          echo "Training completed successfully"
+          python failing_train.py
       
       - name: Upload model artifacts
         uses: actions/upload-artifact@v4
